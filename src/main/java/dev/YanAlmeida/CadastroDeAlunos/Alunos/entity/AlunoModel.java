@@ -2,6 +2,7 @@ package dev.YanAlmeida.CadastroDeAlunos.Alunos.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "tb_alunos")
 public class AlunoModel {
 
     @Id
@@ -9,5 +10,15 @@ public class AlunoModel {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "nome")
+    private String nome;
 
+    @Column(name = "cpf",unique = true,length = 11)
+    private String cpf;
+
+    @Column(name = "email",unique = true)
+    private String email;
+
+    @Column(name = "idade")
+    private int idade;
 }
