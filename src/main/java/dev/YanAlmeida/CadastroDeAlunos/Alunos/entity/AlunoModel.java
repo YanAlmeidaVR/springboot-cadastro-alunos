@@ -1,8 +1,14 @@
 package dev.YanAlmeida.CadastroDeAlunos.Alunos.entity;
 import jakarta.persistence.*;
+import lombok.*;
+
 
 @Entity
 @Table(name = "tb_alunos")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class AlunoModel {
 
     @Id
