@@ -29,7 +29,7 @@ public class AlunoController {
     //Busca um aluno pelo ID.
 
     @GetMapping("/listar/{id}")
-    public ResponseEntity<AlunoResponseDTO> buscarPorId(@PathVariable Long id){
+    public ResponseEntity<AlunoResponseDTO>listarPorId(@PathVariable Long id){
         return ResponseEntity.ok(alunoService.buscarPorId(id));
     }
 
@@ -44,7 +44,7 @@ public class AlunoController {
 
     // Atualiza um aluno existente.
 
-    @PutMapping("atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     public ResponseEntity<AlunoResponseDTO> atualizar(@PathVariable Long id, @RequestBody AlunoCreateDTO dto){
         return ResponseEntity.ok(alunoService.atualizar(id, dto));
     }
@@ -55,5 +55,4 @@ public class AlunoController {
     public void deletar(@PathVariable Long id) {
         alunoService.deletar(id);
     }
-
 }
