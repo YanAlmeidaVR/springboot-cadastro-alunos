@@ -1,4 +1,4 @@
-package dev.YanAlmeida.CadastroDeAlunos.Notas.dto;
+package dev.YanAlmeida.CadastroDeAlunos.dto.notas;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

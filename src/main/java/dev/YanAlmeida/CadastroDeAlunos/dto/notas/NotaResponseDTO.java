@@ -1,39 +1,20 @@
-package dev.YanAlmeida.CadastroDeAlunos.Notas.entity;
+package dev.YanAlmeida.CadastroDeAlunos.dto.notas;
 
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.entity.AlunoModel;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.enums.StatusAprovacao;
-import jakarta.persistence.*;
+import dev.YanAlmeida.CadastroDeAlunos.enums.StatusAprovacao;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "tb_notas")
 @AllArgsConstructor
 @NoArgsConstructor
+public class NotaResponseDTO{
 
-public class NotaModel{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "nota1", nullable = false, precision = 4, scale = 2)
+    private Long alunoId;
     private BigDecimal nota1;
-
-    @Column(name = "nota2", nullable = false, precision = 4, scale = 2)
     private BigDecimal nota2;
-
-    @Column(name = "media", nullable = false, precision = 4, scale = 2)
     private BigDecimal media;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status_aprovacao", nullable = false)
     private StatusAprovacao statusAprovacao;
-
-    @OneToOne
-    @JoinColumn(name = "aluno_id", nullable = false, unique = true)
-    private AlunoModel aluno;
 
     public Long getId() {
         return id;
@@ -41,6 +22,14 @@ public class NotaModel{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getAlunoId() {
+        return alunoId;
+    }
+
+    public void setAlunoId(Long alunoId) {
+        this.alunoId = alunoId;
     }
 
     public BigDecimal getNota1() {
@@ -73,13 +62,5 @@ public class NotaModel{
 
     public void setStatusAprovacao(StatusAprovacao statusAprovacao) {
         this.statusAprovacao = statusAprovacao;
-    }
-
-    public AlunoModel getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(AlunoModel aluno) {
-        this.aluno = aluno;
     }
 }

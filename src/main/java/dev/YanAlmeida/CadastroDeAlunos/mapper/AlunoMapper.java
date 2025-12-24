@@ -1,9 +1,9 @@
-package dev.YanAlmeida.CadastroDeAlunos.Alunos.mapper;
+package dev.YanAlmeida.CadastroDeAlunos.mapper;
 
 
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.dto.AlunoCreateDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.dto.AlunoResponseDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.entity.AlunoModel;
+import dev.YanAlmeida.CadastroDeAlunos.dto.alunos.AlunoCreateDTO;
+import dev.YanAlmeida.CadastroDeAlunos.dto.alunos.AlunoResponseDTO;
+import dev.YanAlmeida.CadastroDeAlunos.entity.AlunoModel;
 import org.springframework.stereotype.Component;
 
 @Component

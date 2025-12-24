@@ -1,8 +1,8 @@
-package dev.YanAlmeida.CadastroDeAlunos.Notas.controller;
+package dev.YanAlmeida.CadastroDeAlunos.controller;
 
-import dev.YanAlmeida.CadastroDeAlunos.Notas.dto.NotaCreateDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.dto.NotaResponseDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.service.NotaService;
+import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaCreateDTO;
+import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaResponseDTO;
+import dev.YanAlmeida.CadastroDeAlunos.service.NotaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +48,9 @@ public class NotaController {
 
     // Deleta a instância NotaModel por Id
     @DeleteMapping("/deletar/{id}")
-    public void deletar(@PathVariable Long id){
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         notaService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
+
 }

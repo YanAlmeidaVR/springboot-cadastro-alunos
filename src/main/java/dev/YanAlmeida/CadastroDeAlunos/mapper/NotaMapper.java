@@ -1,9 +1,9 @@
-package dev.YanAlmeida.CadastroDeAlunos.Notas.mapper;
+package dev.YanAlmeida.CadastroDeAlunos.mapper;
 
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.entity.AlunoModel;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.dto.NotaCreateDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.dto.NotaResponseDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.entity.NotaModel;
+import dev.YanAlmeida.CadastroDeAlunos.entity.AlunoModel;
+import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaCreateDTO;
+import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaResponseDTO;
+import dev.YanAlmeida.CadastroDeAlunos.entity.NotaModel;
 import org.springframework.stereotype.Component;
 
 @Component

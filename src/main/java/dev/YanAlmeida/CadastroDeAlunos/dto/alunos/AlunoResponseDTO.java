@@ -1,4 +1,4 @@
-package dev.YanAlmeida.CadastroDeAlunos.Alunos.dto;
+package dev.YanAlmeida.CadastroDeAlunos.dto.alunos;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

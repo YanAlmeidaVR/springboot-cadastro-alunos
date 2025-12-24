@@ -1,4 +1,4 @@
-package dev.YanAlmeida.CadastroDeAlunos.Notas.enums;
+package dev.YanAlmeida.CadastroDeAlunos.enums;
 
 public enum StatusAprovacao{
     APROVADO,

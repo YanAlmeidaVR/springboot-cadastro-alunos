@@ -1,8 +1,8 @@
-package dev.YanAlmeida.CadastroDeAlunos.Alunos.controller;
+package dev.YanAlmeida.CadastroDeAlunos.controller;
 
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.dto.AlunoCreateDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.dto.AlunoResponseDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.service.AlunoService;
+import dev.YanAlmeida.CadastroDeAlunos.dto.alunos.AlunoCreateDTO;
+import dev.YanAlmeida.CadastroDeAlunos.dto.alunos.AlunoResponseDTO;
+import dev.YanAlmeida.CadastroDeAlunos.service.AlunoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,7 +52,8 @@ public class AlunoController {
     // Deleta um aluno por Id
 
     @DeleteMapping("/deletar/{id}")
-    public void deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         alunoService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 }

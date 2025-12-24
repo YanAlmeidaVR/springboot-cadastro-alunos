@@ -1,13 +1,15 @@
-package dev.YanAlmeida.CadastroDeAlunos.Notas.service;
+package dev.YanAlmeida.CadastroDeAlunos.service;
 
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.entity.AlunoModel;
-import dev.YanAlmeida.CadastroDeAlunos.Alunos.repository.AlunoRepository;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.dto.NotaCreateDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.dto.NotaResponseDTO;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.entity.NotaModel;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.enums.StatusAprovacao;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.mapper.NotaMapper;
-import dev.YanAlmeida.CadastroDeAlunos.Notas.repository.NotaRepository;
+import dev.YanAlmeida.CadastroDeAlunos.entity.AlunoModel;
+import dev.YanAlmeida.CadastroDeAlunos.exceptions.aluno.AlunoNotFoundException;
+import dev.YanAlmeida.CadastroDeAlunos.exceptions.nota.NotaNotFoundException;
+import dev.YanAlmeida.CadastroDeAlunos.repository.AlunoRepository;
+import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaCreateDTO;
+import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaResponseDTO;
+import dev.YanAlmeida.CadastroDeAlunos.entity.NotaModel;
+import dev.YanAlmeida.CadastroDeAlunos.enums.StatusAprovacao;
+import dev.YanAlmeida.CadastroDeAlunos.mapper.NotaMapper;
+import dev.YanAlmeida.CadastroDeAlunos.repository.NotaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -31,7 +33,7 @@ public class NotaService {
     // Cria uma nova instância na tabela NotaModel.
     public NotaResponseDTO save(NotaCreateDTO dto){
         AlunoModel aluno = alunoRepository.findById(dto.getAlunoId())
-                .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+                .orElseThrow(NotaNotFoundException::new);
 
         validarNotas(dto.getNota1(), dto.getNota2());
 
@@ -62,7 +64,7 @@ public class NotaService {
 
     public NotaResponseDTO buscarPorId(Long id) {
         NotaModel nota = notaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Nota não encontrada"));
+                .orElseThrow(NotaNotFoundException::new);
         return notaMapper.toResponse(nota);
     }
 
@@ -74,7 +76,7 @@ public class NotaService {
         validarNotas(dto.getNota1(), dto.getNota2());
 
         NotaModel notaExistente = notaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Nota não encontrada"));
+                .orElseThrow(NotaNotFoundException::new);
 
         aplicarNotas(notaExistente,dto.getNota1(),dto.getNota2());
 
@@ -88,7 +90,7 @@ public class NotaService {
 
     public void deletar(Long id) {
         NotaModel nota = notaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Nota não encontrada"));
+                .orElseThrow(NotaNotFoundException::new);
         notaRepository.delete(nota);
     }
 
