@@ -78,11 +78,13 @@ public class AlunoService {
 
     // Remove um aluno pelo ID.
 
-    public void deletar(Long id){
-        AlunoModel aluno = alunoRepository.findById(id)
-                .orElseThrow(AlunoNotFoundException::new);
-        alunoRepository.delete(aluno);
+    public void deletar(Long id) {
+        if (!alunoRepository.existsById(id)) {
+            throw new AlunoNotFoundException();
+        }
+        alunoRepository.deleteById(id);
     }
+
 
 
     /* ================= Regras de Negócio ================= */
@@ -92,11 +94,11 @@ public class AlunoService {
 
     private String limparCpf(String cpf){
 
-            if (cpf == null){
-                throw new CpfErrorException("CPF não pode ser nulo");
-            }
+        if (cpf.length() != 11){
+            throw new CpfErrorException("CPF deve conter 11 dígitos");
+        }
 
-            return cpf.replaceAll("\\D", "");
+        return cpf.replaceAll("\\D", "");
         }
 
 
