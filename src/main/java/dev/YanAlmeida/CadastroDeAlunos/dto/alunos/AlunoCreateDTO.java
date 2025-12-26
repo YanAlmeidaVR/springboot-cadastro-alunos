@@ -1,5 +1,9 @@
 package dev.YanAlmeida.CadastroDeAlunos.dto.alunos;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -7,10 +11,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AlunoCreateDTO {
 
+    @NotBlank(message = "Nome é obrigatório")
     private String nome;
+
+    @NotBlank(message = "CPF é obrigatório")
     private String cpf;
+
+    @Email(message = "Email inválido")
+    @NotBlank(message = "Email é obrigatório")
     private String email;
-    private int idade;
+
+    @NotNull(message = "Idade é obrigatória")
+    @Min(value = 1, message = "Idade deve ser maior que zero")
+    private Integer idade;
 
 
     public String getNome(){

@@ -1,5 +1,7 @@
 package dev.YanAlmeida.CadastroDeAlunos.dto.notas;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
@@ -8,8 +10,15 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class NotaCreateDTO{
 
+    @NotNull(message = "AlunoId é obrigatório")
     private Long alunoId;
+
+    @NotNull(message = "Nota1 é obrigatória")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Nota1 não pode ser negativa")
     private BigDecimal nota1;
+
+    @NotNull(message = "Nota2 é obrigatória")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Nota2 não pode ser negativa")
     private BigDecimal nota2;
 
     public Long getAlunoId() {
