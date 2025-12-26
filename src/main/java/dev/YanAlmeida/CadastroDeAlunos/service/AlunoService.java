@@ -23,15 +23,14 @@ public class AlunoService {
         this.alunoMapper = alunoMapper;
     }
 
-    // Cria uma nova instância na tabela AlunoModel.
 
-    public AlunoResponseDTO save(AlunoCreateDTO aluno){
+    public AlunoResponseDTO save(AlunoCreateDTO aluno) {
 
-        String cpfLimpo = limparCpf(aluno.getCpf());
-        validarCpf(cpfLimpo);
+        String cpfFormatado = formatarCpfComMascara(aluno.getCpf());
+        validarCpf(cpfFormatado);
 
         AlunoModel alunoModel = alunoMapper.toEntity(aluno);
-        alunoModel.setCpf(cpfLimpo);
+        alunoModel.setCpf(cpfFormatado);
 
         AlunoModel salvo = alunoRepository.save(alunoModel);
 
@@ -63,11 +62,11 @@ public class AlunoService {
         AlunoModel alunoExistente = alunoRepository.findById(id)
                 .orElseThrow(AlunoNotFoundException::new);
 
-        String cpfLimpo = limparCpf(dto.getCpf());
-        validarCpf(cpfLimpo);
+        String cpfFormatado = formatarCpfComMascara(dto.getCpf());
+        validarCpf(cpfFormatado);
 
         alunoExistente.setNome(dto.getNome());
-        alunoExistente.setCpf(cpfLimpo);
+        alunoExistente.setCpf(cpfFormatado);
         alunoExistente.setEmail(dto.getEmail());
         alunoExistente.setIdade(dto.getIdade());
 
@@ -75,6 +74,7 @@ public class AlunoService {
 
         return alunoMapper.toResponse(atualizado);
     }
+
 
     // Remove um aluno pelo ID.
 
@@ -89,51 +89,42 @@ public class AlunoService {
 
     /* ================= Regras de Negócio ================= */
 
-    // Remove máscara do CPF e valida os dígitos.
-    // Retorna sempre CPF com 11 dígitos.
-
-    private String limparCpf(String cpf){
-
-        if (cpf.length() != 11){
+    public String limparCpf(String cpf) {
+        if (cpf == null || cpf.isBlank()) {
+            throw new CpfErrorException("CPF não pode ser nulo ou vazio");
+        }
+        String numeros = cpf.replaceAll("\\D", "");
+        if (numeros.length() != 11) {
             throw new CpfErrorException("CPF deve conter 11 dígitos");
         }
+        return numeros;
+    }
 
-        return cpf.replaceAll("\\D", "");
-        }
+    public void validarCpf(String cpf) {
+        String numeros = limparCpf(cpf);
 
-
-        // Validação dos dígitos verificadores do CPF.
-
-    private void validarCpf(String cpf){
-
-        if (cpf == null || cpf.length() != 11){
-            throw new CpfErrorException("CPF deve conter 11 dígitos");
-        }
-
-        if (cpf.chars().distinct().count() == 1){
+        if (numeros.chars().distinct().count() == 1) {
             throw new CpfErrorException("CPF inválido");
         }
 
+        if (!validarDigito(numeros, 9) || !validarDigito(numeros, 10)) {
+            throw new CpfErrorException("CPF inválido");
+        }
+    }
+
+    private boolean validarDigito(String cpf, int posicao) {
         int soma = 0;
-        for (int i = 0; i < 9; i++){
-            soma += (cpf.charAt(i) - '0') * (10 - i);
+        for (int i = 0; i < posicao; i++) {
+            soma += (cpf.charAt(i) - '0') * (posicao + 1 - i);
         }
+        int digito = 11 - (soma % 11);
+        digito = digito >= 10 ? 0 : digito;
+        return digito == (cpf.charAt(posicao) - '0');
+    }
 
-        int digito1 = 11 - (soma % 11);
-        digito1 = digito1 >= 10 ? 0 : digito1;
-
-        soma = 0;
-        for (int i = 0; i < 10; i++) {
-            soma += (cpf.charAt(i) - '0') * (11 - i);
-        }
-
-        int digito2 = 11 - (soma % 11);
-        digito2 = digito2 >= 10 ? 0 : digito2;
-
-        if (digito1 != (cpf.charAt(9) - '0') ||
-                digito2 != (cpf.charAt(10) - '0')) {
-            throw new CpfErrorException("CPF inválido");
-        }
+    public String formatarCpfComMascara(String cpf) {
+        String numeros = limparCpf(cpf);
+        return numeros.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
     }
 
 }

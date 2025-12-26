@@ -18,7 +18,7 @@ public class AlunoModel{
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "cpf",unique = true,length = 11)
+    @Column(name = "cpf",unique = true,length = 14)
     private String cpf;
 
     @Column(name = "email",unique = true)
