@@ -344,20 +344,21 @@ status_aprovacao  VARCHAR(20) NOT NULL
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET | `/api/alunos` | Lista todos os alunos |
-| GET | `/api/alunos/{id}` | Busca aluno por ID |
-| POST | `/api/alunos` | Cria novo aluno |
-| PUT | `/api/alunos/{id}` | Atualiza aluno |
-| DELETE | `/api/alunos/{id}` | Remove aluno |
+| GET | `/alunos/listar` | Lista todos os alunos |
+| GET | `/alunos/listar/{id}` | Busca aluno por ID |
+| POST | `/alunos/criar` | Cria novo aluno |
+| PUT | `/alunos/atualizar/{id}` | Atualiza aluno |
+| DELETE | `/alunos/deletar/{id}` | Remove aluno |
 
 #### Notas
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET | `/api/notas` | Lista todas as notas |
-| GET | `/api/notas/{id}` | Busca nota por ID |
-| POST | `/api/notas` | Cria nova nota |
-| DELETE | `/api/notas/{id}` | Remove nota |
+| GET | `/notas/listar` | Lista todas as notas |
+| GET | `/notas/listar/{id}` | Busca nota por ID |
+| POST | `/notas/criar` | Cria nova nota |
+| PUT | `/notas/atualizar/{id}` | Atualiza nota |
+| DELETE | `/notas/deletar/{id}` | Remove nota |
 
 ### Exemplo de Requisição (POST /api/alunos)
 ```json
@@ -387,13 +388,11 @@ status_aprovacao  VARCHAR(20) NOT NULL
 - [ ] Implementar autenticação e autorização (Spring Security)
 - [ ] Adicionar paginação nas listagens
 - [ ] Implementar filtros e busca avançada
-- [ ] Exportação de relatórios (PDF/Excel)
 - [ ] Dashboard com estatísticas
 - [ ] Histórico de alterações
 - [ ] Notificações por email
-- [ ] Testes unitários e de integração
 - [ ] Deploy em ambiente de produção
-- [ ] Documentação da API com Swagger/OpenAPI
+- [ ] Documentação da API com Swagger
 
 ---
 
@@ -435,7 +434,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Yan Almeida**
 
-- 💼 LinkedIn: [seu-linkedin](www.linkedin.com/in/yandealmeida)
+- 💼 LinkedIn: [Yan Almeida](www.linkedin.com/in/yandealmeida)
 - 🐱 GitHub: [@YanAlmeida](https://github.com/YanAlmeidaVR)
 - 📧 Email: seu.email@example.com
 
