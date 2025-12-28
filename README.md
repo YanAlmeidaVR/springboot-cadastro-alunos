@@ -155,11 +155,11 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 ### 👥 Gestão de Alunos
 
 **Listagem de Alunos**
-![Lista de Alunos](docs/screenshots/01-lista-alunos.png)
+![Lista de Alunos](docs/screenshots/lista-alunos.png)
 > Visualização de todos os alunos cadastrados com CPF formatado, email e idade
 
 **Cadastro de Aluno**
-![Formulário de Aluno](docs/screenshots/02-form-aluno.png)
+![Formulário de Aluno](docs/screenshots/cadastro-alunos.png)
 > Formulário intuitivo com validação de CPF e unicidade de dados
 
 ---
@@ -167,11 +167,11 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 ### 📊 Gestão de Notas
 
 **Listagem de Notas**
-![Lista de Notas](docs/screenshots/03-lista-notas.png)
+![Lista de Notas](docs/screenshots/lista-notas.png)
 > Visualização completa com notas individuais, média calculada e status de aprovação
 
 **Cadastro de Nota**
-![Formulário de Nota](docs/screenshots/04-form-nota.png)
+![Formulário de Nota](docs/screenshots/cadastro-notas.png)
 > Seleção de aluno e entrada de notas com validação de intervalo (0-12)
 
 </details>
@@ -238,8 +238,8 @@ src/main/resources/
 │   │   ├── form.html       # Formulário de nota
 │   │   └── listar.html     # Listagem de notas
 │   └── layout/
-│       └── base.html       # Layout base (se existir)
-│
+│   |    └── base.html       # Layout base
+│   |__ error.html          # Layout de erro
 ├── 📁 db/migration/        # Migrations Flyway
 │   └── V1__create_tables.sql
 │
@@ -435,8 +435,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Yan Almeida**
 
-- 💼 LinkedIn: [seu-linkedin](https://linkedin.com/in/seu-usuario)
-- 🐱 GitHub: [@YanAlmeida](https://github.com/seu-usuario)
+- 💼 LinkedIn: [seu-linkedin](www.linkedin.com/in/yandealmeida)
+- 🐱 GitHub: [@YanAlmeida](https://github.com/YanAlmeidaVR)
 - 📧 Email: seu.email@example.com
 
 ---
