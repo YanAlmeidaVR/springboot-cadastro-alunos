@@ -155,11 +155,11 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 ### 👥 Gestão de Alunos
 
 **Listagem de Alunos**
-![Lista de Alunos](docs/screenshots/lista-alunos.png)
+![Lista de Alunos](./docs/lista-alunos.png)
 > Visualização de todos os alunos cadastrados com CPF formatado, email e idade
 
 **Cadastro de Aluno**
-![Formulário de Aluno](docs/screenshots/cadastro-alunos.png)
+![Formulário de Aluno](./docs/cadastro-alunos.png)
 > Formulário intuitivo com validação de CPF e unicidade de dados
 
 ---
