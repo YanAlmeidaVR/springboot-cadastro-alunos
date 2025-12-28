@@ -1,15 +1,27 @@
 package dev.YanAlmeida.CadastroDeAlunos.dto.alunos;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "Dados de resposta de um aluno")
 public class AlunoResponseDTO {
+
+    @Schema(description = "ID único do aluno", example = "1")
     private Long id;
+
+    @Schema(description = "Nome completo do aluno", example = "João Silva")
     private String nome;
+
+    @Schema(description = "CPF do aluno", example = "12345678900")
     private String cpf;
+
+    @Schema(description = "Email do aluno", example = "joao.silva@email.com")
     private String email;
+
+    @Schema(description = "Idade do aluno", example = "18")
     private int idade;
 
     public Long getId() {

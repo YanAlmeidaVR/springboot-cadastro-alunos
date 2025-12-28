@@ -1,20 +1,36 @@
 package dev.YanAlmeida.CadastroDeAlunos.dto.notas;
 
 import dev.YanAlmeida.CadastroDeAlunos.enums.StatusAprovacao;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "Dados de resposta de uma nota")
 public class NotaResponseDTO{
 
+    @Schema(description = "ID único da nota", example = "1")
     private Long id;
+
+    @Schema(description = "ID do aluno", example = "1")
     private Long alunoId;
+
+    @Schema(description = "Nome do aluno", example = "João Silva")
     private String alunoNome;
+
+    @Schema(description = "Primeira nota do aluno", example = "8.5")
     private BigDecimal nota1;
+
+    @Schema(description = "Segunda nota do aluno", example = "7.0")
     private BigDecimal nota2;
+
+    @Schema(description = "Média calculada das notas", example = "7.75")
     private BigDecimal media;
+
+    @Schema(description = "Status de aprovação do aluno", example = "APROVADO",
+            allowableValues = {"APROVADO", "RECUPERACAO", "REPROVADO"})
     private StatusAprovacao statusAprovacao;
 
     public Long getId() {
@@ -69,9 +85,7 @@ public class NotaResponseDTO{
         return alunoNome;
     }
 
-
     public void setAlunoNome(String alunoNome) {
         this.alunoNome = alunoNome;
     }
-
 }
