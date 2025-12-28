@@ -110,7 +110,8 @@
 				<configuration>
 					<url>jdbc:postgresql://localhost:5432/CadastroDeAlunos</url>
 					<user>postgres</user>
-					<password>***REMOVED***</password>
+					<!--suppress UnresolvedMavenProperty -->
+					<password>${env.DB_PASSWORD}</password>
 				</configuration>
 			</plugin>
 		</plugins>
