@@ -154,11 +154,11 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 
 ### 👥 Gestão de Alunos
 
-**Listagem de Alunos**
+### Listagem de Alunos
 ![Lista de Alunos](./docs/lista-alunos.png)
 > Visualização de todos os alunos cadastrados com CPF formatado, email e idade
 
-**Cadastro de Aluno**
+### Cadastro de Aluno
 ![Formulário de Aluno](./docs/cadastro-alunos.png)
 > Formulário intuitivo com validação de CPF e unicidade de dados
 
@@ -167,11 +167,11 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 ### 📊 Gestão de Notas
 
 **Listagem de Notas**
-![Lista de Notas](docs/screenshots/lista-notas.png)
+![Lista de Notas](./docs/lista-notas.png)
 > Visualização completa com notas individuais, média calculada e status de aprovação
 
 **Cadastro de Nota**
-![Formulário de Nota](docs/screenshots/cadastro-notas.png)
+![Formulário de Nota](./docs/cadastro-notas.png)
 > Seleção de aluno e entrada de notas com validação de intervalo (0-12)
 
 </details>
