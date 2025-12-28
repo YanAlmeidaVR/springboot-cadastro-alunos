@@ -6,12 +6,14 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-brightgreen?style=for-the-badge&logo=spring)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?style=for-the-badge&logo=postgresql)
 ![Maven](https://img.shields.io/badge/Maven-3.9-red?style=for-the-badge&logo=apache-maven)
+![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-green?style=for-the-badge&logo=swagger)
 
 Sistema web completo para gerenciamento de alunos e notas, desenvolvido com Spring Boot e interface responsiva.
 
 [🚀 Funcionalidades](#-funcionalidades) • 
 [🛠️ Tecnologias](#️-tecnologias) • 
 [💻 Instalação](#-como-executar) • 
+[📖 API Documentation](#-documentação-da-api) • 
 [📸 Screenshots](#-screenshots) • 
 [📝 Arquitetura](#-arquitetura-do-projeto)
 
@@ -23,7 +25,7 @@ Sistema web completo para gerenciamento de alunos e notas, desenvolvido com Spri
 
 Sistema desenvolvido para gerenciar cadastros de alunos e suas respectivas notas, com validações robustas de CPF, verificação de unicidade de dados, e cálculo automático de médias e status de aprovação.
 
-O projeto foi desenvolvido seguindo as melhores práticas de desenvolvimento backend, incluindo arquitetura em camadas, separação de responsabilidades, validações de regras de negócio e interface responsiva.
+O projeto foi desenvolvido seguindo as melhores práticas de desenvolvimento backend, incluindo arquitetura em camadas, separação de responsabilidades, validações de regras de negócio, interface responsiva e documentação completa da API com Swagger/OpenAPI.
 
 ---
 
@@ -54,6 +56,12 @@ O projeto foi desenvolvido seguindo as melhores práticas de desenvolvimento bac
 - ✅ Navegação fluida entre páginas
 - ✅ Confirmações de exclusão
 
+### 📖 API REST
+- ✅ Documentação interativa com Swagger UI
+- ✅ Especificação OpenAPI 3.0
+- ✅ Endpoints RESTful completos
+- ✅ Testes de API direto na interface
+
 ---
 
 ## 🛠️ Tecnologias
@@ -68,6 +76,7 @@ O projeto foi desenvolvido seguindo as melhores práticas de desenvolvimento bac
 - **Flyway** - Controle de versão do banco (migrations)
 - **Lombok** - Redução de boilerplate
 - **Bean Validation** - Validação de dados
+- **SpringDoc OpenAPI 2.3.0** - Documentação da API (Swagger)
 
 ### Frontend
 - **Thymeleaf** - Template engine
@@ -126,6 +135,15 @@ spring.jpa.properties.hibernate.format_sql=true
 # Flyway
 spring.flyway.enabled=true
 spring.flyway.locations=classpath:db/migration
+
+# SpringDoc OpenAPI/Swagger
+springdoc.api-docs.path=/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+springdoc.swagger-ui.enabled=true
+springdoc.swagger-ui.operations-sorter=method
+springdoc.swagger-ui.tags-sorter=alpha
+springdoc.swagger-ui.try-it-out-enabled=true
+springdoc.paths-to-exclude=/web/**
 ```
 
 ### 4️⃣ Execute a Aplicação
@@ -143,7 +161,50 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 
 ### 5️⃣ Acesse a Aplicação
 
-🌐 **URL:** http://localhost:8080/web/alunos
+🌐 **Interface Web:** http://localhost:8080/web/alunos
+
+📖 **Documentação Swagger:** http://localhost:8080/swagger-ui.html
+
+📄 **OpenAPI JSON:** http://localhost:8080/api-docs
+
+---
+
+## 📖 Documentação da API
+
+### Swagger UI
+
+A aplicação possui documentação interativa completa da API REST usando Swagger/OpenAPI 3.0.
+
+**Acesse:** http://localhost:8080/swagger-ui.html
+
+![Swagger UI](./docs/swagger-ui.png)
+
+### Recursos da Documentação
+
+✅ **Exploração Interativa** - Visualize todos os endpoints disponíveis  
+✅ **Teste Direto** - Execute requisições diretamente pela interface  
+✅ **Schemas Detalhados** - Veja estruturas de request/response  
+✅ **Exemplos de Dados** - Valores de exemplo para facilitar testes  
+✅ **Códigos de Resposta** - Documentação completa de status HTTP  
+✅ **Validações** - Regras de validação documentadas  
+
+### Grupos de Endpoints
+
+#### 👥 **Alunos**
+Gerenciamento completo de cadastro de alunos
+- Listar todos os alunos
+- Buscar aluno por ID
+- Criar novo aluno
+- Atualizar dados do aluno
+- Deletar aluno
+
+#### 📊 **Notas**
+Gerenciamento de notas e avaliações
+- Listar todas as notas
+- Buscar nota por ID
+- Criar nova nota
+- Atualizar nota existente
+- Deletar nota
 
 ---
 
@@ -154,11 +215,11 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 
 ### 👥 Gestão de Alunos
 
-### Listagem de Alunos
+**Listagem de Alunos**
 ![Lista de Alunos](./docs/lista-alunos.png)
 > Visualização de todos os alunos cadastrados com CPF formatado, email e idade
 
-### Cadastro de Aluno
+**Cadastro de Aluno**
 ![Formulário de Aluno](./docs/cadastro-alunos.png)
 > Formulário intuitivo com validação de CPF e unicidade de dados
 
@@ -174,6 +235,18 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 ![Formulário de Nota](./docs/cadastro-notas.png)
 > Seleção de aluno e entrada de notas com validação de intervalo (0-12)
 
+---
+
+### 📖 Documentação Swagger
+
+**Swagger UI - Visão Geral**
+![Swagger Overview](./docs/swagger-overview.png)
+> Interface interativa com todos os endpoints documentados
+
+**Swagger UI - Detalhes do Endpoint**
+![Swagger Endpoint](./docs/swagger-endpoint.png)
+> Documentação detalhada com exemplos, schemas e possibilidade de teste
+
 </details>
 
 ---
@@ -184,11 +257,12 @@ java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
 ```
 src/main/java/dev/YanAlmeida/CadastroDeAlunos/
 ├── 📁 config/              # Configurações da aplicação
-│   └── FlywayConfig.java
+│   ├── FlywayConfig.java
+│   └── OpenApiConfig.java  # Configuração Swagger
 │
 ├── 📁 controller/          # Camada de Apresentação
-│   ├── AlunoController.java         # API REST de alunos
-│   ├── NotaController.java          # API REST de notas
+│   ├── AlunoController.java         # API REST de alunos (com Swagger)
+│   ├── NotaController.java          # API REST de notas (com Swagger)
 │   └── view/
 │       ├── AlunoViewController.java # Controller Web de alunos
 │       └── NotaViewController.java  # Controller Web de notas
@@ -201,7 +275,7 @@ src/main/java/dev/YanAlmeida/CadastroDeAlunos/
 │   ├── AlunoRepository.java # Acesso a dados de alunos
 │   └── NotaRepository.java  # Acesso a dados de notas
 │
-├── 📁 dto/                 # Data Transfer Objects
+├── 📁 dto/                 # Data Transfer Objects (com @Schema)
 │   ├── alunos/
 │   │   ├── AlunoCreateDTO.java
 │   │   └── AlunoResponseDTO.java
@@ -274,6 +348,9 @@ Abstração do acesso a dados com Spring Data JPA
 ### ⚠️ **Exception Handling**
 Tratamento centralizado de exceções com `@ControllerAdvice`
 
+### 📖 **API Documentation Pattern**
+Documentação como código usando anotações OpenAPI/Swagger
+
 ---
 
 ## 🔍 Regras de Negócio
@@ -340,7 +417,7 @@ status_aprovacao  VARCHAR(20) NOT NULL
 
 ### Endpoints da API REST
 
-#### Alunos
+#### 👥 Alunos
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
@@ -350,7 +427,7 @@ status_aprovacao  VARCHAR(20) NOT NULL
 | PUT | `/alunos/atualizar/{id}` | Atualiza aluno |
 | DELETE | `/alunos/deletar/{id}` | Remove aluno |
 
-#### Notas
+#### 📊 Notas
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
@@ -360,7 +437,20 @@ status_aprovacao  VARCHAR(20) NOT NULL
 | PUT | `/notas/atualizar/{id}` | Atualiza nota |
 | DELETE | `/notas/deletar/{id}` | Remove nota |
 
-### Exemplo de Requisição (POST /api/alunos)
+### Testando com Swagger UI
+
+A maneira mais fácil de testar a API é através do Swagger UI:
+
+1. Acesse http://localhost:8080/swagger-ui.html
+2. Selecione o endpoint desejado
+3. Clique em "Try it out"
+4. Preencha os parâmetros necessários
+5. Clique em "Execute"
+6. Visualize a resposta
+
+### Exemplo de Requisição (POST /alunos/criar)
+
+**Request Body:**
 ```json
 {
   "nome": "João Silva",
@@ -370,7 +460,7 @@ status_aprovacao  VARCHAR(20) NOT NULL
 }
 ```
 
-### Exemplo de Resposta
+**Response (201 Created):**
 ```json
 {
   "id": 1,
@@ -378,6 +468,30 @@ status_aprovacao  VARCHAR(20) NOT NULL
   "cpf": "123.456.789-10",
   "email": "joao@example.com",
   "idade": 20
+}
+```
+
+### Exemplo de Requisição (POST /notas/criar)
+
+**Request Body:**
+```json
+{
+  "alunoId": 1,
+  "nota1": 8.5,
+  "nota2": 7.0
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": 1,
+  "alunoId": 1,
+  "alunoNome": "João Silva",
+  "nota1": 8.5,
+  "nota2": 7.0,
+  "media": 7.75,
+  "statusAprovacao": "APROVADO"
 }
 ```
 
@@ -392,7 +506,10 @@ status_aprovacao  VARCHAR(20) NOT NULL
 - [ ] Histórico de alterações
 - [ ] Notificações por email
 - [ ] Deploy em ambiente de produção
-- [ ] Documentação da API com Swagger
+- [x] ~~Documentação da API com Swagger~~ ✅
+- [ ] Testes unitários e de integração
+- [ ] CI/CD com GitHub Actions
+- [ ] Containerização com Docker
 
 ---
 
@@ -409,6 +526,9 @@ Durante o desenvolvimento deste projeto, foram aplicados conceitos importantes:
 - ✅ Validação de unicidade com tratamento de updates
 - ✅ Interface responsiva com Bootstrap
 - ✅ Query Methods do Spring Data JPA
+- ✅ Documentação de APIs REST com OpenAPI/Swagger
+- ✅ Anotações para documentação automática
+- ✅ API First Design
 
 ---
 
