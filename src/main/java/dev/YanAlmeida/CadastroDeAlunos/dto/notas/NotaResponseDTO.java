@@ -11,6 +11,7 @@ public class NotaResponseDTO{
 
     private Long id;
     private Long alunoId;
+    private String alunoNome;
     private BigDecimal nota1;
     private BigDecimal nota2;
     private BigDecimal media;
@@ -63,4 +64,14 @@ public class NotaResponseDTO{
     public void setStatusAprovacao(StatusAprovacao statusAprovacao) {
         this.statusAprovacao = statusAprovacao;
     }
+
+    public String getAlunoNome() {
+        return alunoNome;
+    }
+
+
+    public void setAlunoNome(String alunoNome) {
+        this.alunoNome = alunoNome;
+    }
+
 }

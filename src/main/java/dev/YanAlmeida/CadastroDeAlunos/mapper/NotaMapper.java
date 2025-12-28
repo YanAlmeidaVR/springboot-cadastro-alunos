@@ -24,6 +24,7 @@ public class NotaMapper{
         NotaResponseDTO dto = new NotaResponseDTO();
         dto.setId(model.getId());
         dto.setAlunoId(model.getAluno().getId());
+        dto.setAlunoNome(model.getAluno().getNome());
         dto.setNota1(model.getNota1());
         dto.setNota2(model.getNota2());
         dto.setMedia(model.getMedia());
@@ -31,5 +32,6 @@ public class NotaMapper{
 
         return dto;
     }
+
 
 }

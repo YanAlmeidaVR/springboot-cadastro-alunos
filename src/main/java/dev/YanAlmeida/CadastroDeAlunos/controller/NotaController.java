@@ -43,7 +43,7 @@ public class NotaController {
     // Atualiza a instância existente
     @PutMapping("/atualizar/{id}")
     public ResponseEntity<NotaResponseDTO> atualizar(@PathVariable Long id, @RequestBody NotaCreateDTO nota){
-        return ResponseEntity.ok(notaService.atualizar(id,nota));
+        return ResponseEntity.ok(notaService.atualizar(id, nota));
     }
 
     // Deleta a instância NotaModel por Id

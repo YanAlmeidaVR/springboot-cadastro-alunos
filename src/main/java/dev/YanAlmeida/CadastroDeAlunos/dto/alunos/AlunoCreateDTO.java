@@ -25,36 +25,35 @@ public class AlunoCreateDTO {
     @Min(value = 1, message = "Idade deve ser maior que zero")
     private Integer idade;
 
-
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getCpf(){
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf){
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public int getIdade(){
+    public Integer getIdade() {   // ✅ CORRETO
         return idade;
     }
 
-    public void setIdade(int idade){
+    public void setIdade(Integer idade) { // ✅ CORRETO
         this.idade = idade;
     }
 }

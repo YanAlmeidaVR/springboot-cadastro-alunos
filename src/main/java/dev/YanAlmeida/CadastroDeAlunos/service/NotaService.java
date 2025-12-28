@@ -1,7 +1,6 @@
 package dev.YanAlmeida.CadastroDeAlunos.service;
 
 import dev.YanAlmeida.CadastroDeAlunos.entity.AlunoModel;
-import dev.YanAlmeida.CadastroDeAlunos.exceptions.aluno.AlunoNotFoundException;
 import dev.YanAlmeida.CadastroDeAlunos.exceptions.nota.NotaNotFoundException;
 import dev.YanAlmeida.CadastroDeAlunos.repository.AlunoRepository;
 import dev.YanAlmeida.CadastroDeAlunos.dto.notas.NotaCreateDTO;
@@ -10,6 +9,7 @@ import dev.YanAlmeida.CadastroDeAlunos.entity.NotaModel;
 import dev.YanAlmeida.CadastroDeAlunos.enums.StatusAprovacao;
 import dev.YanAlmeida.CadastroDeAlunos.mapper.NotaMapper;
 import dev.YanAlmeida.CadastroDeAlunos.repository.NotaRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -68,23 +68,18 @@ public class NotaService {
         return notaMapper.toResponse(nota);
     }
 
+    // Atualiza uma nota pelo ID
 
-    // Atualiza as notas de um registro existente.
-
-    public NotaResponseDTO atualizar(Long id, NotaCreateDTO dto){
-
-        validarNotas(dto.getNota1(), dto.getNota2());
-
-        NotaModel notaExistente = notaRepository.findById(id)
-                .orElseThrow(NotaNotFoundException::new);
-
-        aplicarNotas(notaExistente,dto.getNota1(),dto.getNota2());
-
-
-        NotaModel atualizada = notaRepository.save(notaExistente);
-
+    public NotaResponseDTO atualizar(Long id, NotaCreateDTO dto) {
+        NotaModel nota = notaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Nota não encontrada"));
+        nota.setNota1(dto.getNota1());
+        nota.setNota2(dto.getNota2());
+        NotaModel atualizada = notaRepository.save(nota);
         return notaMapper.toResponse(atualizada);
     }
+
+
 
     // Remove uma nota pelo ID.
 
