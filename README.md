@@ -1,21 +1,15 @@
-# 📚 Sistema de Cadastro de Alunos
+# 📚 API REST - Sistema de Cadastro de Alunos
 
 <div align="center">
-  
-![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-brightgreen?style=for-the-badge&logo=spring)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?style=for-the-badge&logo=postgresql)
-![Maven](https://img.shields.io/badge/Maven-3.9-red?style=for-the-badge&logo=apache-maven)
-![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-green?style=for-the-badge&logo=swagger)
 
-Sistema web completo para gerenciamento de alunos e notas, desenvolvido com Spring Boot e interface responsiva.
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.5-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
 
-[🚀 Funcionalidades](#-funcionalidades) • 
-[🛠️ Tecnologias](#️-tecnologias) • 
-[💻 Instalação](#-como-executar) • 
-[📖 API Documentation](#-documentação-da-api) • 
-[📸 Screenshots](#-screenshots) • 
-[📝 Arquitetura](#-arquitetura-do-projeto)
+**API REST completa para gerenciamento acadêmico de alunos e notas**
+
+[API Docs](#-documentação-da-api) • [Instalação](#-instalação) • [Endpoints](#-endpoints) • [Arquitetura](#-arquitetura)
 
 </div>
 
@@ -23,458 +17,153 @@ Sistema web completo para gerenciamento de alunos e notas, desenvolvido com Spri
 
 ## 🎯 Sobre o Projeto
 
-Sistema desenvolvido para gerenciar cadastros de alunos e suas respectivas notas, com validações robustas de CPF, verificação de unicidade de dados, e cálculo automático de médias e status de aprovação.
+API REST desenvolvida com Spring Boot para gerenciamento de alunos e notas, implementando validações robustas, regras de negócio complexas e documentação completa com OpenAPI/Swagger.
 
-O projeto foi desenvolvido seguindo as melhores práticas de desenvolvimento backend, incluindo arquitetura em camadas, separação de responsabilidades, validações de regras de negócio, interface responsiva e documentação completa da API com Swagger/OpenAPI.
+### Principais Features
 
----
-
-## 🚀 Funcionalidades
-
-### 👥 Gestão de Alunos
-- ✅ Cadastro completo de alunos
-- ✅ Listagem com informações detalhadas
-- ✅ Edição de dados cadastrais
-- ✅ Exclusão com remoção em cascata de notas
-- ✅ Validação matemática de CPF (algoritmo oficial da Receita Federal)
-- ✅ Verificação de unicidade de CPF e Email
-- ✅ Formatação automática de CPF (XXX.XXX.XXX-XX)
-
-### 📊 Gestão de Notas
-- ✅ Cadastro de notas por aluno
-- ✅ Suporte para notas de 0 a 12
-- ✅ Cálculo automático de média
-- ✅ Definição automática de status (APROVADO/REPROVADO)
-- ✅ Critério de aprovação: média ≥ 6.0
-- ✅ Listagem com status visual (badges coloridos)
-- ✅ Exclusão de notas
-
-### 🎨 Interface
-- ✅ Design moderno e responsivo (Bootstrap 5)
-- ✅ Ícones intuitivos (Bootstrap Icons)
-- ✅ Feedback visual de ações
-- ✅ Navegação fluida entre páginas
-- ✅ Confirmações de exclusão
-
-### 📖 API REST
-- ✅ Documentação interativa com Swagger UI
-- ✅ Especificação OpenAPI 3.0
-- ✅ Endpoints RESTful completos
-- ✅ Testes de API direto na interface
+- 📊 **Cálculo Automático** - Médias e status de aprovação
+- 🔐 **Validações** - Bean Validation com annotations (@CPF, @Email, @NotBlank)
+- 🗄️ **Persistência** - Spring Data JPA + PostgreSQL
+- 📖 **Documentação** - Swagger/OpenAPI 3.0 interativo
+- 🔄 **Migrations** - Controle de versão do banco com Flyway
+- ⚠️ **Exception Handling** - Tratamento centralizado de erros
 
 ---
 
-## 🛠️ Tecnologias
-
-### Backend
-- **Java 21** - Linguagem principal
-- **Spring Boot 4.0.1** - Framework principal
-- **Spring Data JPA** - Persistência de dados
-- **Spring Web MVC** - Controllers REST e View
-- **Hibernate 7.2.0** - ORM
-- **PostgreSQL 16** - Banco de dados relacional
-- **Flyway** - Controle de versão do banco (migrations)
-- **Lombok** - Redução de boilerplate
-- **Bean Validation** - Validação de dados
-- **SpringDoc OpenAPI 2.3.0** - Documentação da API (Swagger)
-
-### Frontend
-- **Thymeleaf** - Template engine
-- **Bootstrap 5.3.3** - Framework CSS
-- **Bootstrap Icons 1.11.3** - Biblioteca de ícones
-
-### Build & DevOps
-- **Maven** - Gerenciamento de dependências
-- **Git** - Controle de versão
-
----
-
-## 💻 Como Executar
+## 🚀 Instalação
 
 ### Pré-requisitos
 
-Certifique-se de ter instalado:
-- [JDK 21](https://www.oracle.com/java/technologies/downloads/#java21)
-- [PostgreSQL 16](https://www.postgresql.org/download/)
-- [Maven 3.9+](https://maven.apache.org/download.cgi)
-- [Git](https://git-scm.com/downloads)
-
-### 1️⃣ Clone o Repositório
 ```bash
-git clone https://github.com/seu-usuario/CadastroDeAlunos.git
+☕ Java 21+
+🐘 PostgreSQL 16+
+📦 Maven 3.9+
+```
+
+### Setup Rápido
+
+**1. Clone o repositório**
+```bash
+git clone https://github.com/YanAlmeidaVR/CadastroDeAlunos.git
 cd CadastroDeAlunos
 ```
 
-### 2️⃣ Configure o Banco de Dados
-
-**Acesse o PostgreSQL:**
-```bash
-psql -U postgres
-```
-
-**Crie o banco de dados:**
+**2. Configure o banco de dados**
 ```sql
-CREATE DATABASE CadastroDeAlunos;
-\q
+CREATE DATABASE cadastro_alunos;
 ```
 
-### 3️⃣ Configure o `application.properties`
-
-Edite o arquivo `src/main/resources/application.properties`:
+**3. Configure `application.properties`**
 ```properties
-# Configuração do Banco de Dados
-spring.datasource.url=jdbc:postgresql://localhost:5432/CadastroDeAlunos
-spring.datasource.username=seu_usuario
+spring.datasource.url=jdbc:postgresql://localhost:5432/cadastro_alunos
+spring.datasource.username=postgres
 spring.datasource.password=sua_senha
+spring.datasource.driver-class-name=org.postgresql.Driver
 
-# JPA/Hibernate
 spring.jpa.hibernate.ddl-auto=validate
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
 
-# Flyway
 spring.flyway.enabled=true
-spring.flyway.locations=classpath:db/migration
+spring.flyway.baseline-on-migrate=true
 
-# SpringDoc OpenAPI/Swagger
-springdoc.api-docs.path=/api-docs
 springdoc.swagger-ui.path=/swagger-ui.html
-springdoc.swagger-ui.enabled=true
-springdoc.swagger-ui.operations-sorter=method
-springdoc.swagger-ui.tags-sorter=alpha
-springdoc.swagger-ui.try-it-out-enabled=true
-springdoc.paths-to-exclude=/web/**
+springdoc.api-docs.path=/api-docs
 ```
 
-### 4️⃣ Execute a Aplicação
-
-**Com Maven:**
+**4. Execute**
 ```bash
 mvn spring-boot:run
 ```
 
-**Ou compile e execute o JAR:**
-```bash
-mvn clean package
-java -jar target/CadastroDeAlunos-0.0.1-SNAPSHOT.jar
+**5. Acesse a documentação**
+```
+📖 Swagger UI: http://localhost:8080/swagger-ui.html
+📄 OpenAPI JSON: http://localhost:8080/api-docs
 ```
 
-### 5️⃣ Acesse a Aplicação
+---
 
-🌐 **Interface Web:** http://localhost:8080/web/alunos
+## 🛠️ Stack Tecnológica
 
-📖 **Documentação Swagger:** http://localhost:8080/swagger-ui.html
-
-📄 **OpenAPI JSON:** http://localhost:8080/api-docs
+| Tecnologia | Versão | Descrição |
+|------------|--------|-----------|
+| **Java** | 21 | Linguagem principal |
+| **Spring Boot** | 3.3.5 | Framework core |
+| **Spring Data JPA** | 3.3.5 | Camada de persistência |
+| **Hibernate** | 6.5.3 | ORM |
+| **PostgreSQL** | 16 | Banco de dados relacional |
+| **Flyway** | 10.10.0 | Versionamento de schema |
+| **SpringDoc OpenAPI** | 2.3.0 | Documentação da API |
+| **Hibernate Validator** | 8.0.1 | Validações Bean Validation |
+| **Lombok** | 1.18.34 | Redução de boilerplate |
+| **Maven** | 3.9+ | Build e gerenciamento de dependências |
 
 ---
 
 ## 📖 Documentação da API
 
-### Swagger UI
+### Swagger UI Interativo
 
-A aplicação possui documentação interativa completa da API REST usando Swagger/OpenAPI 3.0.
+Acesse **http://localhost:8080/swagger-ui.html** para documentação completa e interativa com:
 
-**Acesse:** http://localhost:8080/swagger-ui.html
-
-![Swagger UI](./docs/swagger-ui.png)
-
-### Recursos da Documentação
-
-✅ **Exploração Interativa** - Visualize todos os endpoints disponíveis  
-✅ **Teste Direto** - Execute requisições diretamente pela interface  
-✅ **Schemas Detalhados** - Veja estruturas de request/response  
-✅ **Exemplos de Dados** - Valores de exemplo para facilitar testes  
-✅ **Códigos de Resposta** - Documentação completa de status HTTP  
-✅ **Validações** - Regras de validação documentadas  
-
-### Grupos de Endpoints
-
-#### 👥 **Alunos**
-Gerenciamento completo de cadastro de alunos
-- Listar todos os alunos
-- Buscar aluno por ID
-- Criar novo aluno
-- Atualizar dados do aluno
-- Deletar aluno
-
-#### 📊 **Notas**
-Gerenciamento de notas e avaliações
-- Listar todas as notas
-- Buscar nota por ID
-- Criar nova nota
-- Atualizar nota existente
-- Deletar nota
+- ✅ Exploração de todos os endpoints
+- ✅ Testes diretos pela interface
+- ✅ Schemas detalhados de request/response
+- ✅ Exemplos de dados
+- ✅ Códigos de resposta HTTP documentados
+- ✅ Validações e constraints
 
 ---
 
-## 📸 Screenshots
+## 🔌 Endpoints
 
-<details open>
-<summary>👁️ Clique para expandir/recolher</summary>
+### 👥 Alunos
 
-### 👥 Gestão de Alunos
+| Método | Endpoint | Descrição | Status |
+|--------|----------|-----------|--------|
+| `GET` | `/alunos/listar` | Lista todos os alunos | 200 |
+| `GET` | `/alunos/listar/{id}` | Busca aluno por ID | 200, 404 |
+| `POST` | `/alunos/criar` | Cria novo aluno | 201, 400 |
+| `PUT` | `/alunos/atualizar/{id}` | Atualiza aluno existente | 200, 404 |
+| `DELETE` | `/alunos/deletar/{id}` | Remove aluno (e suas notas) | 204, 404 |
 
-**Listagem de Alunos**
-![Lista de Alunos](./docs/lista-alunos.png)
-> Visualização de todos os alunos cadastrados com CPF formatado, email e idade
-
-**Cadastro de Aluno**
-![Formulário de Aluno](./docs/cadastro-alunos.png)
-> Formulário intuitivo com validação de CPF e unicidade de dados
-
----
-
-### 📊 Gestão de Notas
-
-**Listagem de Notas**
-![Lista de Notas](./docs/lista-notas.png)
-> Visualização completa com notas individuais, média calculada e status de aprovação
-
-**Cadastro de Nota**
-![Formulário de Nota](./docs/cadastro-notas.png)
-> Seleção de aluno e entrada de notas com validação de intervalo (0-12)
-
----
-
-### 📖 Documentação Swagger
-
-**Swagger UI - Visão Geral**
-![Swagger Overview](./docs/swagger-overview.png)
-> Interface interativa com todos os endpoints documentados
-
-**Swagger UI - Detalhes do Endpoint**
-![Swagger Endpoint](./docs/swagger-endpoint.png)
-> Documentação detalhada com exemplos, schemas e possibilidade de teste
-
-</details>
-
----
-
-## 📝 Arquitetura do Projeto
-
-### Estrutura de Pastas
-```
-src/main/java/dev/YanAlmeida/CadastroDeAlunos/
-├── 📁 config/              # Configurações da aplicação
-│   ├── FlywayConfig.java
-│   └── OpenApiConfig.java  # Configuração Swagger
-│
-├── 📁 controller/          # Camada de Apresentação
-│   ├── AlunoController.java         # API REST de alunos (com Swagger)
-│   ├── NotaController.java          # API REST de notas (com Swagger)
-│   └── view/
-│       ├── AlunoViewController.java # Controller Web de alunos
-│       └── NotaViewController.java  # Controller Web de notas
-│
-├── 📁 service/             # Camada de Negócio
-│   ├── AlunoService.java   # Regras de negócio de alunos
-│   └── NotaService.java    # Regras de negócio de notas
-│
-├── 📁 repository/          # Camada de Persistência
-│   ├── AlunoRepository.java # Acesso a dados de alunos
-│   └── NotaRepository.java  # Acesso a dados de notas
-│
-├── 📁 dto/                 # Data Transfer Objects (com @Schema)
-│   ├── alunos/
-│   │   ├── AlunoCreateDTO.java
-│   │   └── AlunoResponseDTO.java
-│   └── notas/
-│       ├── NotaCreateDTO.java
-│       └── NotaResponseDTO.java
-│
-├── 📁 entity/              # Entidades JPA
-│   ├── AlunoModel.java
-│   └── NotaModel.java
-│
-├── 📁 mapper/              # Conversores DTO ↔ Entity
-│   ├── AlunoMapper.java
-│   └── NotaMapper.java
-│
-├── 📁 exceptions/          # Exceções Customizadas
-│   ├── aluno/
-│   │   ├── AlunoNotFoundException.java
-│   │   └── CpfErrorException.java
-│   ├── nota/
-│   │   └── NotaNotFoundException.java
-│   └── infra/
-│       └── GlobalExceptionHandler.java
-│
-└── 📁 enums/               # Enumerações
-    └── StatusAprovacao.java
-
-src/main/resources/
-├── 📁 templates/           # Views Thymeleaf
-│   ├── alunos/
-│   │   ├── form.html       # Formulário de aluno
-│   │   └── listar.html     # Listagem de alunos
-│   ├── notas/
-│   │   ├── form.html       # Formulário de nota
-│   │   └── listar.html     # Listagem de notas
-│   └── layout/
-│   |    └── base.html       # Layout base
-│   |__ error.html          # Layout de erro
-├── 📁 db/migration/        # Migrations Flyway
-│   └── V1__create_tables.sql
-│
-├── 📁 static/              # Arquivos estáticos
-│
-└── application.properties  # Configurações da aplicação
-```
-
----
-
-## 🏗️ Padrões de Projeto Utilizados
-
-### 🎯 **Arquitetura em Camadas**
-```
-Controller → Service → Repository → Database
-```
-Separação clara de responsabilidades seguindo princípios SOLID
-
-### 🔄 **DTO Pattern**
-```java
-CreateDTO → Service → Entity → Repository
-Repository → Entity → Service → ResponseDTO
-```
-Transferência segura de dados entre camadas
-
-### 🗺️ **Mapper Pattern**
-Conversão centralizada entre DTOs e Entities usando MapStruct ou manual
-
-### 🔐 **Repository Pattern**
-Abstração do acesso a dados com Spring Data JPA
-
-### ⚠️ **Exception Handling**
-Tratamento centralizado de exceções com `@ControllerAdvice`
-
-### 📖 **API Documentation Pattern**
-Documentação como código usando anotações OpenAPI/Swagger
-
----
-
-## 🔍 Regras de Negócio
-
-### Validação de CPF
-1. Remove caracteres não numéricos
-2. Verifica se possui 11 dígitos
-3. Bloqueia CPFs com números repetidos (111.111.111-11, etc)
-4. Valida dígitos verificadores usando algoritmo oficial
-
-### Validação de Unicidade
-- CPF e Email devem ser únicos no sistema
-- Permite que aluno mantenha seus próprios dados em edições
-- Bloqueia tentativas de usar dados de outros alunos
-
-### Cálculo de Notas
-```
-Média = (Nota1 + Nota2) / 2
-Status = Média ≥ 6.0 ? APROVADO : REPROVADO
-```
-
----
-
-## 📊 Modelo de Dados
-
-### Diagrama ER Simplificado
-```
-┌─────────────────┐         ┌─────────────────┐
-│   TB_ALUNOS     │         │    TB_NOTAS     │
-├─────────────────┤         ├─────────────────┤
-│ id (PK)         │1       N│ id (PK)         │
-│ nome            │────────<│ aluno_id (FK)   │
-│ cpf (UNIQUE)    │         │ nota1           │
-│ email (UNIQUE)  │         │ nota2           │
-│ idade           │         │ media           │
-└─────────────────┘         │ status_aprovacao│
-                            └─────────────────┘
-```
-
-### Tabelas
-
-**TB_ALUNOS**
-```sql
-id            BIGSERIAL PRIMARY KEY
-nome          VARCHAR(100) NOT NULL
-cpf           VARCHAR(14) UNIQUE NOT NULL
-email         VARCHAR(100) UNIQUE NOT NULL
-idade         INTEGER NOT NULL
-```
-
-**TB_NOTAS**
-```sql
-id                BIGSERIAL PRIMARY KEY
-aluno_id          BIGINT REFERENCES tb_alunos(id)
-nota1             NUMERIC(4,2) NOT NULL
-nota2             NUMERIC(4,2) NOT NULL
-media             NUMERIC(4,2) NOT NULL
-status_aprovacao  VARCHAR(20) NOT NULL
-```
-
----
-
-## 🧪 Testando a Aplicação
-
-### Endpoints da API REST
-
-#### 👥 Alunos
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/alunos/listar` | Lista todos os alunos |
-| GET | `/alunos/listar/{id}` | Busca aluno por ID |
-| POST | `/alunos/criar` | Cria novo aluno |
-| PUT | `/alunos/atualizar/{id}` | Atualiza aluno |
-| DELETE | `/alunos/deletar/{id}` | Remove aluno |
-
-#### 📊 Notas
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/notas/listar` | Lista todas as notas |
-| GET | `/notas/listar/{id}` | Busca nota por ID |
-| POST | `/notas/criar` | Cria nova nota |
-| PUT | `/notas/atualizar/{id}` | Atualiza nota |
-| DELETE | `/notas/deletar/{id}` | Remove nota |
-
-### Testando com Swagger UI
-
-A maneira mais fácil de testar a API é através do Swagger UI:
-
-1. Acesse http://localhost:8080/swagger-ui.html
-2. Selecione o endpoint desejado
-3. Clique em "Try it out"
-4. Preencha os parâmetros necessários
-5. Clique em "Execute"
-6. Visualize a resposta
-
-### Exemplo de Requisição (POST /alunos/criar)
-
-**Request Body:**
+**Exemplo - Criar Aluno:**
 ```json
+POST /alunos/criar
+
 {
-  "nome": "João Silva",
+  "nome": "Maria Silva",
   "cpf": "12345678910",
-  "email": "joao@example.com",
-  "idade": 20
+  "email": "maria@email.com",
+  "idade": 22
 }
 ```
 
-**Response (201 Created):**
+**Resposta (201):**
 ```json
 {
   "id": 1,
-  "nome": "João Silva",
+  "nome": "Maria Silva",
   "cpf": "123.456.789-10",
-  "email": "joao@example.com",
-  "idade": 20
+  "email": "maria@email.com",
+  "idade": 22
 }
 ```
 
-### Exemplo de Requisição (POST /notas/criar)
+### 📊 Notas
 
-**Request Body:**
+| Método | Endpoint | Descrição | Status |
+|--------|----------|-----------|--------|
+| `GET` | `/notas/listar` | Lista todas as notas | 200 |
+| `GET` | `/notas/listar/{id}` | Busca nota por ID | 200, 404 |
+| `POST` | `/notas/criar` | Cria nova nota | 201, 400 |
+| `PUT` | `/notas/atualizar/{id}` | Atualiza nota existente | 200, 404 |
+| `DELETE` | `/notas/deletar/{id}` | Remove nota | 204, 404 |
+
+**Exemplo - Criar Nota:**
 ```json
+POST /notas/criar
+
 {
   "alunoId": 1,
   "nota1": 8.5,
@@ -482,12 +171,12 @@ A maneira mais fácil de testar a API é através do Swagger UI:
 }
 ```
 
-**Response (201 Created):**
+**Resposta (201):**
 ```json
 {
   "id": 1,
   "alunoId": 1,
-  "alunoNome": "João Silva",
+  "alunoNome": "Maria Silva",
   "nota1": 8.5,
   "nota2": 7.0,
   "media": 7.75,
@@ -497,56 +186,274 @@ A maneira mais fácil de testar a API é através do Swagger UI:
 
 ---
 
-## 🚀 Próximas Melhorias
+## 🏗️ Arquitetura
 
-- [ ] Implementar autenticação e autorização (Spring Security)
-- [ ] Adicionar paginação nas listagens
-- [ ] Implementar filtros e busca avançada
-- [ ] Dashboard com estatísticas
-- [ ] Histórico de alterações
-- [ ] Notificações por email
-- [ ] Deploy em ambiente de produção
-- [x] ~~Documentação da API com Swagger~~ ✅
-- [ ] Testes unitários e de integração
-- [ ] CI/CD com GitHub Actions
-- [ ] Containerização com Docker
+### Estrutura em Camadas
+
+```
+┌──────────────┐
+│  Controller  │  ← REST API (JSON) + Validações (@Valid)
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│   Service    │  ← Regras de negócio + Lógica de cálculo
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│  Repository  │  ← Spring Data JPA (Query Methods)
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│  PostgreSQL  │  ← Banco de dados
+└──────────────┘
+```
+
+### Estrutura de Diretórios
+
+```
+src/main/java/dev/YanAlmeida/CadastroDeAlunos/
+├── 📁 config/
+│   ├── FlywayConfig.java
+│   └── OpenApiConfig.java
+│
+├── 📁 controller/
+│   ├── AlunoController.java       # REST API de alunos
+│   └── NotaController.java        # REST API de notas
+│
+├── 📁 service/
+│   ├── AlunoService.java          # Lógica de negócio de alunos
+│   └── NotaService.java           # Lógica de negócio de notas
+│
+├── 📁 repository/
+│   ├── AlunoRepository.java       # Spring Data JPA
+│   └── NotaRepository.java
+│
+├── 📁 entity/
+│   ├── AlunoModel.java            # Entidade JPA
+│   └── NotaModel.java
+│
+├── 📁 dto/
+│   ├── alunos/
+│   │   ├── AlunoCreateDTO.java    # Request DTO
+│   │   └── AlunoResponseDTO.java  # Response DTO
+│   └── notas/
+│       ├── NotaCreateDTO.java
+│       └── NotaResponseDTO.java
+│
+├── 📁 mapper/
+│   ├── AlunoMapper.java           # Entity ↔ DTO
+│   └── NotaMapper.java
+│
+├── 📁 exceptions/
+│   ├── aluno/
+│   │   └── AlunoNotFoundException.java
+│   ├── nota/
+│   │   └── NotaNotFoundException.java
+│   └── infra/
+│       └── GlobalExceptionHandler.java
+│
+└── 📁 enums/
+    └── StatusAprovacao.java
+```
+
+### Padrões de Projeto
+
+- ✅ **Layered Architecture** - Controller → Service → Repository
+- ✅ **DTO Pattern** - Separação entre objetos de transferência e entidades
+- ✅ **Repository Pattern** - Abstração de acesso a dados
+- ✅ **Mapper Pattern** - Conversão entre DTOs e Entities
+- ✅ **Exception Handling** - `@ControllerAdvice` para tratamento global
+- ✅ **Bean Validation** - Validações declarativas (@Valid, @CPF, @Email)
 
 ---
 
-## 📚 Aprendizados
+## 🗄️ Modelo de Dados
 
-Durante o desenvolvimento deste projeto, foram aplicados conceitos importantes:
+```sql
+┌─────────────────────────┐         ┌──────────────────────────┐
+│      TB_ALUNOS          │         │       TB_NOTAS           │
+├─────────────────────────┤         ├──────────────────────────┤
+│ id (PK)      BIGSERIAL  │         │ id (PK)       BIGSERIAL  │
+│ nome         VARCHAR    │ 1     N │ aluno_id (FK) BIGINT     │
+│ cpf          VARCHAR    │◄────────┤ nota1         NUMERIC    │
+│ email        VARCHAR    │         │ nota2         NUMERIC    │
+│ idade        INTEGER    │         │ media         NUMERIC    │
+│                         │         │ status        VARCHAR    │
+└─────────────────────────┘         └──────────────────────────┘
+   UNIQUE: cpf, email
+```
 
-- ✅ Arquitetura em camadas e separação de responsabilidades
-- ✅ Validações de regras de negócio complexas (CPF)
-- ✅ Relacionamentos JPA (OneToMany, ManyToOne)
-- ✅ Migrations com Flyway
-- ✅ DTOs e Mappers para transferência segura de dados
-- ✅ Exception Handling centralizado
-- ✅ Validação de unicidade com tratamento de updates
-- ✅ Interface responsiva com Bootstrap
-- ✅ Query Methods do Spring Data JPA
-- ✅ Documentação de APIs REST com OpenAPI/Swagger
-- ✅ Anotações para documentação automática
-- ✅ API First Design
-
----
-
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para:
-
-1. Fazer um fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona MinhaFeature'`)
-4. Push para a branch (`git push origin feature/MinhaFeature`)
-5. Abrir um Pull Request
+**Constraints:**
+- CPF e Email são únicos no sistema
+- Relacionamento: 1 Aluno → N Notas
+- Cascade: DELETE de aluno remove suas notas
 
 ---
 
-## 📝 Licença
+## ⚙️ Regras de Negócio
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+### Validações (Bean Validation)
+
+```java
+// AlunoCreateDTO
+@NotBlank(message = "Nome é obrigatório")
+private String nome;
+
+@NotBlank(message = "CPF é obrigatório")
+@CPF(message = "CPF inválido")  // Hibernate Validator
+private String cpf;
+
+@Email(message = "Email inválido")
+@NotBlank(message = "Email é obrigatório")
+private String email;
+
+@NotNull(message = "Idade é obrigatória")
+@Min(value = 1, message = "Idade deve ser maior que zero")
+private Integer idade;
+```
+
+### Unicidade de Dados
+
+O `AlunoService` garante que:
+- ✅ CPF e Email são únicos no cadastro
+- ✅ Em atualizações, permite manter os próprios dados do aluno
+- ✅ Bloqueia tentativas de usar CPF/Email de outros alunos
+- ✅ Formatação automática de CPF: `12345678910` → `123.456.789-10`
+
+### Cálculo de Notas
+
+```java
+// Automático no NotaService
+Media = (Nota1 + Nota2) / 2
+
+Status = {
+    APROVADO   se Media >= 6.0
+    REPROVADO  se Media < 6.0
+}
+```
+
+---
+
+## 🧪 Testando a API
+
+### Via Swagger UI (Recomendado)
+
+1. Acesse: **http://localhost:8080/swagger-ui.html**
+2. Escolha o endpoint
+3. Clique em **"Try it out"**
+4. Preencha o payload
+5. Clique em **"Execute"**
+
+### Via cURL
+
+```bash
+# Criar aluno
+curl -X POST http://localhost:8080/alunos/criar \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nome": "João Silva",
+    "cpf": "12345678910",
+    "email": "joao@email.com",
+    "idade": 20
+  }'
+
+# Listar alunos
+curl http://localhost:8080/alunos/listar
+
+# Criar nota
+curl -X POST http://localhost:8080/notas/criar \
+  -H "Content-Type: application/json" \
+  -d '{
+    "alunoId": 1,
+    "nota1": 8.5,
+    "nota2": 7.0
+  }'
+
+# Listar notas
+curl http://localhost:8080/notas/listar
+```
+
+### Via Postman/Insomnia
+
+Importe a especificação OpenAPI:
+```
+http://localhost:8080/api-docs
+```
+
+---
+
+## 📋 Migrations (Flyway)
+
+### V1__create_tables.sql
+
+```sql
+CREATE TABLE tb_alunos (
+    id BIGSERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    idade INTEGER NOT NULL
+);
+
+CREATE TABLE tb_notas (
+    id BIGSERIAL PRIMARY KEY,
+    aluno_id BIGINT NOT NULL,
+    nota1 NUMERIC(4,2) NOT NULL CHECK (nota1 >= 0 AND nota1 <= 12),
+    nota2 NUMERIC(4,2) NOT NULL CHECK (nota2 >= 0 AND nota2 <= 12),
+    media NUMERIC(4,2) NOT NULL,
+    status_aprovacao VARCHAR(20) NOT NULL,
+    FOREIGN KEY (aluno_id) REFERENCES tb_alunos(id)
+);
+```
+
+---
+
+## 🔒 Tratamento de Erros
+
+### Exception Handler Global
+
+```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+    
+    @ExceptionHandler(AlunoNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleAlunoNotFound() {
+        return ResponseEntity.status(404).body(...);
+    }
+    
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ValidationError> handleValidation() {
+        return ResponseEntity.status(400).body(...);
+    }
+}
+```
+
+### Códigos de Status HTTP
+
+| Status | Descrição |
+|--------|-----------|
+| `200` | Sucesso (GET, PUT) |
+| `201` | Criado com sucesso (POST) |
+| `204` | Deletado com sucesso (DELETE) |
+| `400` | Validação falhou |
+| `404` | Recurso não encontrado |
+| `500` | Erro interno do servidor |
+
+---
+
+## 🚀 Melhorias Futuras
+
+- [ ] Autenticação e autorização (Spring Security + JWT)
+- [ ] Paginação e ordenação nas listagens
+- [ ] Filtros e busca avançada
+- [ ] Testes unitários e de integração (JUnit 5 + Mockito)
+- [ ] Testes de API (REST Assured)
+- [ ] Cache com Redis
+- [ ] Logs estruturados
+- [ ] Métricas com Actuator + Prometheus
+- [ ] CI/CD (GitHub Actions)
+- [ ] Containerização (Docker + Docker Compose)
+- [ ] Deploy na nuvem (AWS/Azure/Heroku)
 
 ---
 
@@ -554,20 +461,21 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Yan Almeida**
 
-- 💼 LinkedIn: [Yan Almeida](www.linkedin.com/in/yandealmeida)
-- 🐱 GitHub: [@YanAlmeida](https://github.com/YanAlmeidaVR)
-- 📧 Email: seu.email@example.com
+- 💼 LinkedIn: [Yan Almeida](https://www.linkedin.com/in/yandealmeida)
+- 🐱 GitHub: [@YanAlmeidaVR](https://github.com/YanAlmeidaVR)
 
 ---
 
-## ⭐ Deixe uma Estrela!
+## 📝 Licença
 
-Se este projeto te ajudou de alguma forma, considere deixar uma ⭐ no repositório!
+Este projeto está sob a licença MIT.
 
 ---
 
 <div align="center">
-  
-**Desenvolvido com ❤️ e ☕ por Yan Almeida**
+
+**Desenvolvido com ☕ por Yan Almeida**
+
+⭐ Se este projeto foi útil, deixe uma estrela no repositório!
 
 </div>
